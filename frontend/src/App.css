@@ -1,0 +1,25 @@
+.container {
+  display: flex; 
+  height: 100vh; 
+  flex-direction: column; 
+  padding: 10px; /* Navbar-ul va fi pe toată lățimea */
+}
+
+.mainContent {
+  display: flex;  /* Sidebar-ul și conținutul sunt într-un flex container */
+  flex: 1;  /* Această secțiune ocupă tot spațiul disponibil */
+}
+
+.pageContent {
+  flex: 1;  /* Conținutul se va întinde pe tot spațiul disponibil */
+  padding: 20px;  /* Spațiu în jurul conținutului */
+}
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
