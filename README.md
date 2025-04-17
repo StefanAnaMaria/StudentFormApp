@@ -28,44 +28,69 @@ A web application built for students to fill out and manage forms easily. The ap
 
 ### Prerequisites
 
-Before running the application, ensure you have the following installed:
+Before running the application, make sure the following tools are installed:
 
-- Docker: https://www.docker.com/get-started
-- .NET SDK (for backend)
-- Node.js (for frontend)
+- [.NET SDK](https://dotnet.microsoft.com/download) (for backend)
+- [Node.js](https://nodejs.org/en/download) (for frontend)
+- (Optional) [Docker](https://www.docker.com/get-started) – to run SQL Server locally
 
-### Running the Application with Docker
+---
 
-1. Clone the repository:
+### Running the Application Locally
 
-    ```bash
-    git clone <repository-url>
-    ```
+You can run the frontend and backend separately on your local machine. Optionally, you can also run a SQL Server database using Docker for full data persistence.
 
-2. Navigate to the project directory:
+---
 
-    ```bash
-    cd StudentFormApp
-    ```
+#### 1. Run the Backend (ASP.NET Core)
 
-3. Build and run the application using Docker:
+1. Navigate to the backend directory:
 
     ```bash
-    docker-compose up --build
+    cd backend
     ```
 
-    This will:
-    - Build both frontend and backend Docker containers.
-    - Start the application with the necessary services (Frontend, Backend).
+2. Update the connection string in `appsettings.Development.json`:
+   - If you’re not using a database, you can skip this step or use an in-memory setup (if implemented).
+   - If using SQL Server, configure the connection as shown in the "Optional: Add SQL Server" section below.
 
-### Accessing the Application
+3. Start the backend:
 
-- **Frontend**: Open a browser and navigate to [http://localhost:3000](http://localhost:3000) to access the React frontend.
-- **Backend**: The backend API is available at [http://localhost:5042](http://localhost:5042).
+    ```bash
+    dotnet run
+    ```
 
-### Stopping the Application
+4. The backend API will be available at:
 
-To stop the running containers, use:
+    ```
+    http://localhost:5042
+    ```
 
-```bash
-docker-compose down
+---
+
+#### 2. Run the Frontend (React)
+
+1. Open a new terminal and navigate to the frontend directory:
+
+    ```bash
+    cd frontend
+    ```
+
+2. Install the dependencies:
+
+    ```bash
+    npm install
+    ```
+
+3. Start the development server:
+
+    ```bash
+    npm start
+    ```
+
+4. Open the application in your browser:
+
+    ```
+    http://localhost:3000
+    ```
+
